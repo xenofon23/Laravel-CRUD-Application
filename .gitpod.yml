@@ -2,8 +2,7 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Create MySQL Database
-    init: |
-
-      # Create the database and grant privileges to root user
+  - name: Start MySQL Server and Create Database
+    command: |
+      service mysql start
       echo "CREATE DATABASE crud; GRANT ALL PRIVILEGES ON crud.* TO 'root'@'localhost' IDENTIFIED BY 'root';" | mysql
