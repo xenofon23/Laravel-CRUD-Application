@@ -19,10 +19,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('/profiles', [ProfileController::class, 'index']);
-Route::get('/profiles/create', [ProfileController::class, 'create']);
-Route::post('/profiles', [ProfileController::class, 'store']);
-Route::get('/profiles/{profile}', [ProfileController::class, 'show']);
-Route::get('/profiles/{profile}/edit', [ProfileController::class, 'edit']);
-Route::put('/profiles/{profile}', [ProfileController::class, 'update']);
-Route::delete('/profiles/{profile}', [ProfileController::class, 'destroy']);
+Route::resource('profiles', ProfileController::class);
