@@ -20,6 +20,10 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|alpha',
+            'surname' => 'required|alpha'
+        ]);
         Profile::create($request->post());
 
         return redirect()->route('profiles.index')->with('success','profile has been created successfully.');
@@ -37,8 +41,10 @@ class ProfileController extends Controller
 
     public function update(Request $request, Profile $profile)
     {
-
-
+        $request->validate([
+            'name' => 'required|alpha',
+            'surname' => 'required|alpha'
+        ]);
         $profile->fill($request->post())->save();
 
         return redirect()->route('profiles.index')->with('success','profile Has Been updated successfully');
