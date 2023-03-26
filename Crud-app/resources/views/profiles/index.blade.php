@@ -44,6 +44,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                {!! $profiles->links() !!}
             </div>
         </div>
     </div>

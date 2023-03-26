@@ -9,7 +9,7 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $profiles = Profile::all();
+        $profiles = Profile::simplePaginate(3);;
         return view('profiles.index', compact('profiles'));
     }
 
