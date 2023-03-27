@@ -1,6 +1,6 @@
 Description
 crud-app is a application where you can:
- Add a new person to the list
+Add a new person to the list
 Read:View the list of persons
 Update: Edit an existing person on the list
 Delete: Remove an existing person from the list.
