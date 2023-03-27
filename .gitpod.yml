@@ -6,6 +6,7 @@ tasks:
       service mysql start
       sleep 20
       mysql -e "CREATE DATABASE crud;"
-#       Create new user with secure password and grant privileges
-       mysql -e "CREATE USER 'superadmin'@'localhost' IDENTIFIED BY 'password';"
-       mysql -e "GRANT ALL PRIVILEGES ON crud.* TO 'superadmin'@'localhost';"
+       sleep 20
+      mysql -e "CREATE DATABASE crud;"
+      mysql -e "CREATE USER 'superadmin'@'localhost' IDENTIFIED BY 'password';"
+      mysql -e "GRANT ALL PRIVILEGES ON crud.* TO 'superadmin'@'localhost';"
