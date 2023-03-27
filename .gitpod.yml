@@ -5,5 +5,11 @@ tasks:
   - name: Start MySQL Server and Create Database
     command: |
       service mysql start
+  - name: Create Database
+    command:
+      service mysql start
       sleep 5
-      echo "CREATE DATABASE crud; GRANT ALL PRIVILEGES ON crud.* TO 'superadmin'@'localhost' IDENTIFIED BY 'password'" | mysql
+      mysql
+      CREATE DATABASE crud; 
+      GRANT ALL PRIVILEGES ON crud.* TO 'superadmin'@'localhost' IDENTIFIED BY 'password' ;
+      exit;
