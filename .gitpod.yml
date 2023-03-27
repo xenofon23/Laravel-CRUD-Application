@@ -1,11 +1,6 @@
 image:
   file: .gitpod.Dockerfile
-ports:
-  - port: 8000
-    visibility: public
-  # MySQL server
-  - port: 3306
-    onOpen: ignore
+
 tasks:
   - name: Start MySQL Server and Create Database
     command: |
