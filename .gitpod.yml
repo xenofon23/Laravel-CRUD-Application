@@ -21,7 +21,6 @@ tasks:
       sed -i "s|DB_DATABASE=|DB_DATABASE=crud|g" .env &&
       sed -i "s|DB_USERNAME=|DB_USERNAME=superadmin|g" .env &&
       composer install &&
-      npm i &&
       php artisan key:generate &&
       php artisan migrate &&
       php artisan serve
