@@ -12,7 +12,7 @@ tasks:
       composer install
       php artisan serve
 ports:
-  - name: Web App
+  - name: Web Application
     description: The main application web server
     port: 8000
     onOpen: open-browser
