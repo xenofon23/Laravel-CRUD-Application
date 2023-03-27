@@ -2,10 +2,12 @@ image:
   file: .gitpod.Dockerfile
 
 ports:
+  # Laravel server
   - port: 8000
     onOpen: open-preview
-    name: Website
-    description: Website Preview
+  # MySQL server
+  - port: 3306
+    onOpen: ignore
 tasks:
   - name: Start MySQL Server and Create Database
     command: |
@@ -22,7 +24,7 @@ tasks:
       composer install &&
       php artisan key:generate &&
       php artisan migrate &&
-      php artisan serve --host=127.0.0.1 --port=8000
+      php -S 0.0.0.0:8000 -t public
 
 
 
