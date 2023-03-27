@@ -1,6 +1,8 @@
 image:
   file: .gitpod.Dockerfile
 ports:
+  - port: 8000
+    onOpen: open-preview
   # MySQL server
   - port: 3306
     onOpen: ignore
@@ -20,7 +22,7 @@ tasks:
       composer install &&
       php artisan key:generate &&
       php artisan migrate &&
-      php artisan serve --port=8080
+      php artisan serve --port=8000
 
 
 
