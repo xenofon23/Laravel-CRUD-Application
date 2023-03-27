@@ -16,7 +16,16 @@
                 <div class="text-right">
                     <a href="{{ route('profiles.create') }}" class="btn btn-primary mb-3">Add New Profile</a>
                 </div>
-
+                <form action="{{ route('profiles.index') }}" method="get">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <input type="text" class="form-control mb-3" placeholder="search" name="q">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="submit" class="form-control mb-3" value="Search">
+                        </div>
+                    </div>
+                </form>
                 <table class="table">
                     <thead>
                     <tr>

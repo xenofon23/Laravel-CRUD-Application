@@ -4,12 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
+
 
 class ProfileController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $profiles = Profile::simplePaginate(3);;
+        $q = $request->q;
+
+        $profiles = Profile::when($q, function ($query, $q) {
+            return $query->where('name', 'like', "%{$q}%")
+                ->orWhere('surname', 'like', "%{$q}%");
+        })->simplePaginate(5);
+
         return view('profiles.index', compact('profiles'));
     }
 
@@ -24,19 +32,21 @@ class ProfileController extends Controller
             'name' => 'required|alpha',
             'surname' => 'required|alpha'
         ]);
+
         Profile::create($request->post());
 
-        return redirect()->route('profiles.index')->with('success','profile has been created successfully.');
+        return redirect()->route('profiles.index')->with('success', 'Profile has been created successfully.');
+
     }
 
     public function show(Profile $profile)
     {
-        return view('profiles.show',compact('profile'));
+        return view('profiles.show', compact('profile'));
     }
 
     public function edit(Profile $profile)
     {
-        return view('profiles.edit',compact('profile'));
+        return view('profiles.edit', compact('profile'));
     }
 
     public function update(Request $request, Profile $profile)
@@ -47,12 +57,13 @@ class ProfileController extends Controller
         ]);
         $profile->fill($request->post())->save();
 
-        return redirect()->route('profiles.index')->with('success','profile Has Been updated successfully');
+        return redirect()->route('profiles.index')->with('success', 'Profile has been created successfully.');
+
     }
 
     public function destroy(Profile $profile)
     {
         $profile->delete();
-        return redirect()->route('profiles.index')->with('success','profile has been deleted successfully');
+        return redirect()->route('profiles.index')->with('success', 'Profile has been created successfully.');
     }
 }
