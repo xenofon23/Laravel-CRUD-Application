@@ -24,7 +24,7 @@ tasks:
       composer install &&
       php artisan key:generate &&
       php artisan migrate &&
-      php -S 0.0.0.0:8000 -t public
+      php artisan serve
 
 
 
