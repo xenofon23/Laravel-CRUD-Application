@@ -1,15 +1,8 @@
 image:
   file: .gitpod.Dockerfile
-
 tasks:
   - name: Start MySQL Server and Create Database
     command: |
       service mysql start
-  - name: Create Database
-    command:
-      service mysql start
-      sleep 5
-      mysql
-      CREATE DATABASE crud; 
-      GRANT ALL PRIVILEGES ON crud.* TO 'superadmin'@'localhost' IDENTIFIED BY 'password' ;
-      exit;
+      echo "CREATE DATABASE crud;" | mysql
+      echo "CREATE USER 'superadmin'@'localhost' IDENTIFIED BY 'password'; GRANT ALL PRIVILEGES ON *.* TO 'superadmin'@'localhost' WITH GRANT OPTION;" | mysql
