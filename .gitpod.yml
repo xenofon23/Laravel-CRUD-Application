@@ -5,4 +5,4 @@ tasks:
   - name: Start MySQL Server and Create Database
     command: |
       service mysql start
-      echo "CREATE DATABASE crud; GRANT ALL PRIVILEGES ON crud.* TO 'root'@'localhost' IDENTIFIED BY 'root';" | mysql
+      echo "CREATE DATABASE crud; GRANT ALL PRIVILEGES ON crud.* TO 'superadmin'@'localhost' IDENTIFIED BY 'password';" | mysql
