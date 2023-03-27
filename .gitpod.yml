@@ -10,4 +10,6 @@ tasks:
       mysql -e "GRANT ALL PRIVILEGES ON crud.* TO 'superadmin'@'localhost';"
       cd Crud-app
       composer install
-
+ports:
+  - port: 8000
+    onOpen: open-preview
