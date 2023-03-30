@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Create Profile')
+@section('title', 'Create Person')
 
 @section('content')
     <div class="container">
-        <h1>Create Profile</h1>
+        <h1>Create Person</h1>
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -16,7 +16,7 @@
             </div>
         @endif
 
-        <form action="{{ route('profiles.store') }}" method="post">
+        <form action="{{ route('persons.store') }}" method="post">
             @csrf
 
             <div class="form-group">
@@ -29,7 +29,7 @@
                 <input type="text" name="surname" id="name" class="form-control" value="{{ old('surname') }}" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Create Profile</button>
+            <button type="submit" class="btn btn-primary">Create Person</button>
         </form>
     </div>
 @endsection

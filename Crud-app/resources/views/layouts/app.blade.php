@@ -15,12 +15,12 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{{ route('profiles.index') }}">My Laravel App</a>
+    <a class="navbar-brand" href="{{ route('persons.index') }}">My Laravel App</a>
 
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('profiles.index') }}">Profiles</a>
+                <a class="nav-link" href="{{ route('persons.index') }}">persons</a>
             </li>
         </ul>
     </div>
